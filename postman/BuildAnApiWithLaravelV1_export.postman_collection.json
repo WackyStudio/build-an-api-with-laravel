@@ -1,0 +1,1696 @@
+{
+	"info": {
+		"_postman_id": "7f85aa80-06ff-4691-80e7-0e73bed53702",
+		"name": "Build an API with Laravel - V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Authors",
+			"item": [
+				{
+					"name": "All Authors",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/authors",
+							"path": [
+								"authors"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "attribute",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Authors",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/authors",
+									"path": [
+										"authors"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n\t\"data\":[\n\t\t{\n\t    \t\"id\": \"1\",\n\t        \"type\": \"authors\",\n\t        \"attributes\": {\n\t            \"name\": \"John Doe\",\n\t            \"created_at\": \"2019-01-01\",\n\t            \"updated_at\": \"2019-01-01\"\n\t        }\n\t\t},\n\t\t{\n\t    \t\"id\": \"2\",\n\t        \"type\": \"authors\",\n\t        \"attributes\": {\n\t            \"name\": \"Jane Doe\",\n\t            \"created_at\": \"2019-01-01\",\n\t            \"updated_at\": \"2019-01-01\"\n\t        }\n\t\t}\n\t]\n}"
+						}
+					]
+				},
+				{
+					"name": "Single Author",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/authors/1",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single Author",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/authors/1",
+									"path": [
+										"authors",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"John Doe\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"John Doe\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/authors",
+							"path": [
+								"authors"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Author",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"John Doe\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/authors",
+									"path": [
+										"authors"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"John Doe\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Author",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"Jane Doe\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/authors/1",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Author",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"Jane Doe\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/authors/1",
+									"path": [
+										"authors",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"authors\",\n        \"attributes\": {\n            \"name\": \"Jane Doe\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-02\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Author",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/authors/1",
+							"path": [
+								"authors",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Author",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/authors/1",
+									"path": [
+										"authors",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\n"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Books",
+			"item": [
+				{
+					"name": "All Books",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/books?",
+							"path": [
+								"books"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "attribute",
+									"description": "Sort books by attributes",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Current pagination page",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Books Sorted",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books?sort=publication_year",
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "publication_year",
+											"description": "Sort books by attributes"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book\",\n                \"description\": \"This is an example of a book\",\n                \"publication_year\": \"2018\"\n            },\n            \"relationships\": {}\n        },\n        {\n            \"id\": \"2\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book two\",\n                \"description\": \"This is yet an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {}\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Books Sorted by Multiple Attributes",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books?sort=-publication_year,title",
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "-publication_year,title",
+											"description": "Sort books by attributes"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"2\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book two\",\n                \"description\": \"This is yet an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {}\n        },\n        {\n            \"id\": \"1\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book\",\n                \"description\": \"This is an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {}\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Books",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "/books",
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book\",\n                \"description\": \"This is an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {\n                \"authors\": {\n                    \"links\": {\n                        \"self\": \"/books/1/relationships/authors\",\n                        \"related\": \"/books/1/authors\"\n                    },\n                    \"data\": [\n                        {\n                            \"id\": \"1\",\n                            \"type\": \"authors\"\n                        },\n                        {\n                            \"id\": \"2\",\n                            \"type\": \"authors\"\n                        }\n                    ]\n                },\n                \"comments\": {\n                    \"links\": {\n                        \"self\": \"/books/1/relationships/comments\",\n                        \"related\": \"/books/1/comments\"\n                    },\n                    \"data\": [\n                        {\n                            \"id\": \"1\",\n                            \"type\": \"comments\"\n                        },\n                        {\n                            \"id\": \"2\",\n                            \"type\": \"comments\"\n                        }\n                    ]\n                }\n            }\n        },\n        {\n            \"id\": \"2\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book two\",\n                \"description\": \"This is yet an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {\n                \"authors\": {\n                    \"links\": {\n                        \"self\": \"/books/1/relationships/authors\",\n                        \"related\": \"/books/1/authors\"\n                    },\n                    \"data\": [\n                        {\n                            \"id\": \"3\",\n                            \"type\": \"authors\"\n                        },\n                        {\n                            \"id\": \"4\",\n                            \"type\": \"authors\"\n                        }\n                    ]\n                },\n                \"comments\": {\n                    \"links\": {\n                        \"self\": \"/books/1/relationships/comments\",\n                        \"related\": \"/books/1/comments\"\n                    },\n                    \"data\": [\n                        {\n                            \"id\": \"3\",\n                            \"type\": \"comments\"\n                        },\n                        {\n                            \"id\": \"4\",\n                            \"type\": \"comments\"\n                        }\n                    ]\n                }\n            }\n        }\n    ]\n}"
+						},
+						{
+							"name": "All Books Paginated",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books?page=2",
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "attribute",
+											"description": "Sort books by attributes",
+											"disabled": true
+										},
+										{
+											"key": "page",
+											"value": "2",
+											"description": "Current pagination page"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data\": [\n    {\n      \"id\": \"3\",\n      \"type\": \"books\",\n      \"attributes\": {\n        \"title\": \"Example book 3\",\n        \"description\": \"This is an example of a book\",\n        \"publication_year\": \"2019\"\n      },\n      \"relationships\": {}\n    },\n    {\n      \"id\": \"4\",\n      \"type\": \"books\",\n      \"attributes\": {\n        \"title\": \"Example book 4\",\n        \"description\": \"This is an example of a book\",\n        \"publication_year\": \"2019\"\n      },\n      \"relationships\": {}\n    }\n  ],\n  \"links\": {\n    \"first\": \"/books?page=1\",\n    \"last\": \"/books?page=5\",\n    \"prev\": \"/books?page=1\",\n    \"next\": \"/books?page=3\"\n  }\n}"
+						},
+						{
+							"name": "All Books Sorted Descending",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books?sort=-publication_year",
+									"path": [
+										"books"
+									],
+									"query": [
+										{
+											"key": "sort",
+											"value": "-publication_year",
+											"description": "Sort books by attributes"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"2\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book two\",\n                \"description\": \"This is yet an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {}\n        },\n        {\n            \"id\": \"1\",\n            \"type\": \"books\",\n            \"attributes\": {\n                \"title\": \"Example book\",\n                \"description\": \"This is an example of a book\",\n                \"publication_year\": \"2019\"\n            },\n            \"relationships\": {}\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Single Book",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/books/1",
+							"path": [
+								"books",
+								"1"
+							],
+							"query": [
+								{
+									"key": "include",
+									"value": "resource",
+									"description": "Related resources to be included in the request",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single Book including Authors and Comments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books/1?include=authors,comments",
+									"path": [
+										"books",
+										"1"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "authors,comments",
+											"description": "Related resources to be included in the request"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Single Book including Comments and commenting User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books/1?include=comments.users",
+									"path": [
+										"books",
+										"1"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "comments.users",
+											"description": "Related resources to be included in the request"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						},
+						{
+							"name": "Single Book including Comments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books/1?include=comments",
+									"path": [
+										"books",
+										"1"
+									],
+									"query": [
+										{
+											"key": "include",
+											"value": "comments",
+											"description": "Related resources to be included in the request"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data\": {\n    \"id\": \"1\",\n    \"type\": \"books\",\n    \"attributes\": {\n      \"title\": \"Example book\",\n      \"description\": \"This is an example of a book\",\n      \"publication_year\": \"2019\",\n      \"created_at\": \"2019-01-01\",\n      \"updated_at\": \"2019-01-01\"\n    },\n    \"relationships\": {\n      \"authors\": {\n        \"links\": {\n          \"self\": \"/books/1/relationships/authors\",\n          \"related\": \"/books/1/authors\"\n        },\n        \"data\": [\n          {\n            \"id\": \"1\",\n            \"type\": \"authors\"\n          },\n          {\n            \"id\": \"2\",\n            \"type\": \"authors\"\n          }\n        ]\n      },\n      \"comments\": {\n        \"links\": {\n          \"self\": \"/books/1/relationships/comments\",\n          \"related\": \"/books/1/comments\"\n        },\n        \"data\": [\n          {\n            \"id\": \"1\",\n            \"type\": \"comments\"\n          },\n          {\n            \"id\": \"2\",\n            \"type\": \"comments\"\n          }\n        ]\n      }\n    }\n  },\n  \"included\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"comments\",\n      \"attributes\": {\n        \"message\": \"Hello world\"\n      },\n      \"relationships\": {\n        \"users\": {\n          \"data\": {\n            \"id\": \"1\",\n            \"type\": \"users\"\n          }\n        }\n      },\n      \"links\": {\n        \"self\": \"/comments/1\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"comments\",\n      \"attributes\": {\n        \"message\": \"Foo bar\"\n      },\n      \"relationships\": {\n        \"users\": {\n          \"data\": {\n            \"id\": \"2\",\n            \"type\": \"users\"\n          }\n        }\n      },\n      \"links\": {\n        \"self\": \"/comments/2\"\n      }\n    }\n  ]\n}"
+						},
+						{
+							"name": "Single Book",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books/1",
+									"path": [
+										"books",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        },\n        \"relationships\": {\n            \"authors\": {\n                \"links\": {\n                    \"self\": \"/books/1/relationships/authors\",\n                    \"related\": \"/books/1/authors\"\n                },\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"authors\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"authors\"\n                    }\n                ]\n            },\n            \"comments\": {\n                \"links\": {\n                    \"self\": \"/books/1/relationships/comments\",\n                    \"related\": \"/books/1/comments\"\n                },\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"comments\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"comments\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Book",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "ae8c6568-f162-4673-82a6-7aafddcd1d55",
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/books",
+							"path": [
+								"books"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Book",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/books",
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								},
+								{
+									"key": "Location",
+									"value": "http://example.com/api/v1/books/1",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Create Book with Authors",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\"\n        },\n        \"relationship\": {\n            \"authors\": {\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"authors\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"authors\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/books",
+									"path": [
+										"books"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Example book\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        },\n        \"relationships\": {\n            \"authors\": {\n                \"links\": {\n                    \"self\": \"/books/1/relationships/authors\",\n                    \"related\": \"/books/1/authors\"\n                },\n                \"data\": [\n                    {\n                        \"id\": \"1\",\n                        \"type\": \"authors\"\n                    },\n                    {\n                        \"id\": \"2\",\n                        \"type\": \"authors\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Book",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"id\": 1,\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Update book title\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/books/1",
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Book",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"id\": 1,\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Update book title\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/books/1",
+									"path": [
+										"books",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Update book title\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-02\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Update Book with Authors",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n \"data\": {\n   \"id\": \"1\",\t\n   \"type\": \"books\",\n   \"attributes\": {\n     \"title\": \"Updated title\",\n   },\n   \"relationship\": {\n     \"authors\": {\n       \"data\": [\n         {\n           \"id\": \"4\",\n           \"type\": \"authors\"\n         }\n       ]\n     }\n   }\n }\n}"
+								},
+								"url": {
+									"raw": "/books/1",
+									"path": [
+										"books",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"books\",\n        \"attributes\": {\n            \"title\": \"Updated title\",\n            \"description\": \"This is an example of a book\",\n            \"publication_year\": \"2019\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-02\"\n        },\n        \"relationships\": {\n            \"authors\": {\n                \"links\": {\n                    \"self\": \"/books/1/relationships/authors\",\n                    \"related\": \"/books/1/authors\"\n                },\n                \"data\": [\n                    {\n                        \"id\": \"4\",\n                        \"type\": \"authors\"\n                    }\n                ]\n            }\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Book",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/books/1",
+							"path": [
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Book",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/books/1",
+									"path": [
+										"books",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": null
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Comments",
+			"item": [
+				{
+					"name": "All Comments",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/comments",
+							"path": [
+								"comments"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "attribute",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Comments",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/comments",
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n        {\n            \"id\": \"1\",\n            \"type\": \"comments\",\n            \"attributes\": {\n                \"message\": \"This is a very good book\",\n                \"created_at\": \"2019-01-01\",\n                \"updated_at\": \"2019-01-01\"\n            }\n        },\n        {\n            \"id\": \"2\",\n            \"type\": \"comments\",\n            \"attributes\": {\n                \"message\": \"I agree, it was great\",\n                \"created_at\": \"2019-01-01\",\n                \"updated_at\": \"2019-01-01\"\n            }\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Single Comment",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/comments/1",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single Comment",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/comments/1",
+									"path": [
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is a very good book\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create Comment",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is a very good book\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/comments",
+							"path": [
+								"comments"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create Comment",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is a very good book\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/comments",
+									"path": [
+										"comments"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is a very good book\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Comment",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is updated\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/comments/1",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update Comment",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is updated\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/comments/1",
+									"path": [
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n        \"id\": \"1\",\n        \"type\": \"comments\",\n        \"attributes\": {\n            \"message\": \"This is updated\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete Comment",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/comments/1",
+							"path": [
+								"comments",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Comment",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/comments/1",
+									"path": [
+										"comments",
+										"1"
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\n"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "All Users",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/users",
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "sort",
+									"value": "attribute",
+									"disabled": true
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "All Users",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/users",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": [\n\t    {\n\t    \t\"id\": \"1\",\n\t        \"type\": \"users\",\n\t        \"attributes\": {\n\t            \"username\": \"johndoe\",\n\t            \"name\": \"John Doe\",\n\t            \"email\": \"john@example.com\",\n\t            \"created_at\": \"2019-01-01\",\n\t            \"updated_at\": \"2019-01-01\"\n\t        }\n\t    },\n\t    {\n\t    \t\"id\": \"2\",\n\t        \"type\": \"users\",\n\t        \"attributes\": {\n\t            \"username\": \"janedoe\",\n\t            \"name\": \"Jane Doe\",\n\t            \"email\": \"jane@example.com\",\n\t            \"created_at\": \"2019-01-01\",\n\t            \"updated_at\": \"2019-01-01\"\n\t        }\n\t    }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Single User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "/users/1",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Single User",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "/users/1",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"username\": \"johndoe\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n        \"type\": \"users\",\n        \"attributes\": {\n            \"username\": \"johndoe\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\"\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/users",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Create User",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n        \"type\": \"users\",\n        \"attributes\": {\n            \"username\": \"johndoe\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\"\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/users",
+									"path": [
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"username\": \"johndoe\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update User",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"name\": \"Jack Doe\",\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "/users/1",
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"name\": \"Jack Doe\",\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/users/1",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/vnd.api+json",
+									"description": "",
+									"type": "text"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"username\": \"johndoe\",\n            \"name\": \"John Doe\",\n            \"email\": \"john@example.com\",\n            \"created_at\": \"2019-01-01\",\n            \"updated_at\": \"2019-01-01\"\n        }\n    }\n}"
+						},
+						{
+							"name": "Update User",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"data\": {\n    \t\"id\": \"1\",\n        \"type\": \"users\",\n        \"attributes\": {\n            \"name\": \"Jack Doe\",\n        }\n    }\n}"
+								},
+								"url": {
+									"raw": "/users/1",
+									"path": [
+										"users",
+										"1"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Delete User",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/vnd.api+json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": ""
+						}
+					},
+					"response": [
+						{
+							"name": "Delete User",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/vnd.api+json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": ""
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "\n"
+						}
+					]
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
